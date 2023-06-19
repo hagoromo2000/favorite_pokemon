@@ -2,13 +2,9 @@
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import Select from "react-select";
 import Pokemons from "../../json/allPokemons.json";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import Link from "next/link";
-
-export const pokemonAtom = atom({
-  name: "ピカチュウ",
-  id: 25,
-});
+import { pokemonAtom } from "@/app/jotai/atoms";
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };

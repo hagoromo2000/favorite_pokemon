@@ -39,7 +39,7 @@ const PokemonPost = (props: any) => {
             <Button
               as={TwitterIntentTweet}
               text={props.post.body}
-              url="https://localhost3000"
+              url={process.env.NEXT_PUBLIC_URL}
               hashtags={["あなたの推しポケモン", `${props.post.name}`]}
               colorScheme="twitter"
             >

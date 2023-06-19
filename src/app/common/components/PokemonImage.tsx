@@ -2,13 +2,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Box, Image, Spinner } from "@chakra-ui/react";
-import { atom, useAtom } from "jotai";
-import { pokemonAtom } from "@/app/posts/new/page";
-
-export const pokemonImageAtom = atom({
-  imageURL:
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-});
+import { useAtom } from "jotai";
+import { pokemonAtom, pokemonImageAtom } from "@/app/jotai/atoms";
 
 const PokemonImage = () => {
   const [imageUrl, setImageUrl] = useState(null);
