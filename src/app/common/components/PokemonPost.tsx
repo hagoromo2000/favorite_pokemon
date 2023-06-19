@@ -11,12 +11,9 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
+import { TwitterIntentTweet } from "@/app/utils/TwitterIntentTweet";
 
 const PokemonPost = (props: any) => {
-  useEffect(() => {
-    console.log(props);
-  }, []);
-
   return (
     <>
       <Card maxW="sm">
@@ -39,8 +36,14 @@ const PokemonPost = (props: any) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              Twitterで共有!
+            <Button
+              as={TwitterIntentTweet}
+              text={props.post.body}
+              url="https://localhost3000"
+              hashtags={["あなたの推しポケモン", `${props.post.name}`]}
+              colorScheme="twitter"
+            >
+              記事をシェアする！
             </Button>
           </ButtonGroup>
         </CardFooter>
