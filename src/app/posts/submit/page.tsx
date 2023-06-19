@@ -13,10 +13,9 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { useAtom } from "jotai";
-import { pokemonAtom } from "@/app/posts/new/page";
-import { pokemonImageAtom } from "@/app/common/components/PokemonImage";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { pokemonAtom, pokemonImageAtom } from "@/app/jotai/atoms";
 
 const SubmitPage = () => {
   const router = useRouter();
