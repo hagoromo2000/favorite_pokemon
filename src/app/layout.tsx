@@ -1,7 +1,8 @@
 import Header from "./Header";
 import Main from "./Main";
-import Footer from "./Footer";
 import UseClientProvider from "./Provider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({
   children,
@@ -14,8 +15,20 @@ export default function RootLayout({
       <body>
         <UseClientProvider>
           <Header />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
           <Main>{children}</Main>
-          <Footer />
+          {/* <Footer /> */}
         </UseClientProvider>
       </body>
     </html>

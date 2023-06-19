@@ -1,26 +1,46 @@
 "use client";
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
-import React from "react";
 import Select from "react-select";
 import Pokemons from "../../json/allPokemons.json";
+import { atom, useAtom } from "jotai";
+import Link from "next/link";
+
+export const pokemonAtom = atom({
+  name: "ピカチュウ",
+  id: 25,
+});
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };
 });
 
 export default function SelectPokemon() {
+  const [pokemon, setPokemon] = useAtom(pokemonAtom);
+
+  const handlePokemon = (event: any) => {
+    setPokemon(event.value);
+    console.log(pokemon);
+  };
+
   return (
     <>
       <Flex direction="column" align="center" justify="center" height="100vh">
         <Text mb={4} fontSize="2xl" fontWeight="bold" color="blue.500">
-          推したいポケモンを選択！
+          推したいポケモンを選ぼう！
         </Text>
         <Box width={["100%", "75%", "50%", "25%"]}>
-          <Select options={all_pokemons} />
+          <Select
+            options={all_pokemons}
+            placeholder="ポケモンを選ぶ！"
+            isSearchable={true}
+            onChange={handlePokemon}
+          />
         </Box>
-        <Button colorScheme="blue" alignSelf="center" mt={4}>
-          キミにきめた！
-        </Button>
+        <Link href="/posts/submit" passHref legacyBehavior>
+          <Button colorScheme="blue" alignSelf="center" mt={4} as="a">
+            キミにきめた！
+          </Button>
+        </Link>
       </Flex>
     </>
   );
