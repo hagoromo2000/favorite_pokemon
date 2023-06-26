@@ -42,8 +42,6 @@ const SubmitPage = () => {
       return;
     }
 
-    console.log(pokemon.name, body, authorName, pokemonImage);
-
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/posts`,
