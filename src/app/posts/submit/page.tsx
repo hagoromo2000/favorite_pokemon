@@ -37,11 +37,6 @@ const SubmitPage = () => {
 
     setIsLoading(true);
 
-    if (!body || !authorName) {
-      toast.error("推しポイントと名前を入力してください！");
-      return;
-    }
-
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/posts`,

@@ -30,6 +30,7 @@ export default function SelectPokemon() {
             placeholder="ポケモンを選ぶ！"
             isSearchable={true}
             onChange={handlePokemon}
+            styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
           />
         </Box>
         <Link href="/posts/submit" passHref legacyBehavior>
